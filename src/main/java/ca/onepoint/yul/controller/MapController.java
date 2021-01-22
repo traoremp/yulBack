@@ -1,8 +1,6 @@
 package ca.onepoint.yul.controller;
 
-import ca.onepoint.yul.dto.AvatarDto;
 import ca.onepoint.yul.dto.MapDto;
-import ca.onepoint.yul.service.IAvatarService;
 import ca.onepoint.yul.service.IMapService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,11 +9,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -35,6 +31,7 @@ public class MapController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Map not found",
                     content = @Content)})
+    @CrossOrigin
     @GetMapping("/{id}")
     public MapDto findById(@PathVariable long id) throws JSONException, JsonProcessingException {
         return iMapService.getMapById(id);
@@ -49,6 +46,7 @@ public class MapController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Map not found",
                     content = @Content)})
+    @CrossOrigin
     @GetMapping("/")
     public List<MapDto> findAll() throws JSONException, JsonProcessingException {
         return iMapService.getAllMap();

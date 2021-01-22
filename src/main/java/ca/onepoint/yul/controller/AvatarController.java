@@ -34,21 +34,25 @@ public class AvatarController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Avatar not found",
                     content = @Content)})
+    @CrossOrigin
     @GetMapping("/{id}")
     public AvatarDto findById(@PathVariable Integer id) {
         return iAvatarService.getAvatarById(id);
     }
 
+    @CrossOrigin
     @GetMapping("/")
     public List<AvatarDto> findAllAvatars() {
         return iAvatarService.getAllAvatars();
     }
 
+    @CrossOrigin
     @GetMapping("/{type}")
     public List<AvatarDto> findAvatarsByType(@PathVariable Integer type) {
         return iAvatarService.getAvatarsByType(type);
     }
 
+    @CrossOrigin
     @PostMapping("/move-avatars")
     public void moveAvatars(@RequestBody List<AvatarDto> listAvatar) {
         messagingTemplate.convertAndSend("/topic/progress", listAvatar);
