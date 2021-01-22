@@ -42,7 +42,7 @@ public class MapServiceImpl implements IMapService {
         JSONArray jsonArr = new JSONArray(map.getMap().replace("\\", "").substring(1, map.getMap().replace("\\", "").length() - 1));
         mapDto.setId(map.getId());
         mapDto.setName(map.getName());
-        SquareDto[][] squareDtoList = new SquareDto[16][8];
+        SquareDto[][] squareDtoList = new SquareDto[30][30];
         for (int i = 0; i < jsonArr.length(); i++) {
             JSONArray jsonArray = jsonArr.getJSONArray(i);
             for (int j = 0; j < jsonArray.length(); j++) {
