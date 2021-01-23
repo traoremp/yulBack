@@ -22,7 +22,7 @@ public class MapController {
     private IMapService iMapService;
 
 
-    @Operation(summary = "Get a map by its id. 0 is wall, 1 is road, 2 is metro")
+    @Operation(summary = "Get a map by its id. 0 is wall, 1 is road, 2 is metro, 3 is shop or company, 4 to finish")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the map",
                     content = {@Content(mediaType = "application/json",
@@ -37,7 +37,7 @@ public class MapController {
         return iMapService.getMapById(id);
     }
 
-    @Operation(summary = "Get all map. 0 is wall, 1 is road, 2 is metro")
+    @Operation(summary = "Get all map. 0 is wall, 1 is road, 2 is metro, 3 is shop or company, 4 to finish")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found all map",
                     content = {@Content(mediaType = "application/json",
