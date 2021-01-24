@@ -4,6 +4,8 @@ import ca.onepoint.yul.entity.Avatar;
 import ca.onepoint.yul.entity.Map;
 import ca.onepoint.yul.repository.custom.AvatarRepositoryCustom;
 import ca.onepoint.yul.repository.custom.MapRepositoryCustom;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
